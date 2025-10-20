@@ -4,12 +4,14 @@ stages:
 
 build-job:
   stage: build
-  image: maven:3.8.7-openjdk-11
+  image: image: maven:3.9.4-eclipse-temurin-11
+
   script:
     - mvn compile
 
 run-job:
   stage: run
-  image: maven:3.8.7-openjdk-11
+  image: image: maven:3.9.4-eclipse-temurin-11
+
   script:
     - mvn exec:java
