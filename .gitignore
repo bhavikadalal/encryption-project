@@ -1,0 +1,29 @@
+# Java
+*.class
+*.log
+*.jar
+*.war
+*.zip
+*.tar.gz
+hs_err_pid*
+replay_pid*
+
+# Maven
+/target/
+
+# IDEs
+*.iml
+.idea/
+.vscode/
+*.classpath
+*.project
+*.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Runtime files
+plain.txt
+encrypted.dat
+decrypted.txt

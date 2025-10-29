@@ -11,14 +11,14 @@ import java.security.spec.KeySpec;
 
 public class FileEncryptor {
     private static final String PASSWORD = "strongpassword";
-    private static final byte[] SALT = "12345678".getBytes(); // Use a secure random salt in production
+    private static final byte[] SALT = "12345678".getBytes();
     private static final int ITERATION_COUNT = 65536;
     private static final int KEY_LENGTH = 256;
 
     public static void main(String[] args) throws Exception {
-        File inputFile = new File("plain.txt");           // Replace with your actual file
-        File encryptedFile = new File("encrypted.dat");   // Encrypted output
-        File decryptedFile = new File("decrypted.txt");   // Decrypted output
+        File inputFile = new File("plain.txt");
+        File encryptedFile = new File("encrypted.dat");
+        File decryptedFile = new File("decrypted.txt");
 
         encryptFile(inputFile, encryptedFile);
         decryptFile(encryptedFile, decryptedFile);
@@ -34,7 +34,7 @@ public class FileEncryptor {
 
         try (FileInputStream fis = new FileInputStream(inputFile);
              FileOutputStream fos = new FileOutputStream(outputFile)) {
-            fos.write(iv.getIV()); // Write IV first
+            fos.write(iv.getIV());
             byte[] buffer = new byte[1024];
             int bytesRead;
             while ((bytesRead = fis.read(buffer)) != -1) {
@@ -53,7 +53,7 @@ public class FileEncryptor {
         try (FileInputStream fis = new FileInputStream(inputFile);
              FileOutputStream fos = new FileOutputStream(outputFile)) {
             byte[] ivBytes = new byte[16];
-            fis.read(ivBytes); // Read IV
+            fis.read(ivBytes);
             IvParameterSpec iv = new IvParameterSpec(ivBytes);
             cipher.init(Cipher.DECRYPT_MODE, key, iv);
 
